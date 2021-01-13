@@ -1,0 +1,43 @@
+﻿<Window x:Class="BarcodePrinter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarcodePrinter"
+        mc:Ignorable="d"
+        Title="标签打印" Height="362.8" Width="612" Loaded="Window_Loaded" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <GroupBox Header="自动排序打印" HorizontalAlignment="Left" Height="100" Margin="8.6,102.076,0,0" VerticalAlignment="Top" Width="583.2">
+            <Canvas HorizontalAlignment="Left" Height="46.4" Margin="10,10,-17.2,0" VerticalAlignment="Top" Width="559.2">
+                <Button x:Name="btnAutoPrint" Content="打  印" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnAutoPrint_Click" Height="30.13" Canvas.Left="460.723" Canvas.Top="6.787"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="当前月序:" VerticalAlignment="Top" Canvas.Left="6" Canvas.Top="14.787"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="当前号序:" VerticalAlignment="Top" Canvas.Left="137.817" Canvas.Top="14.787"/>
+                <TextBox x:Name="txtCurentMonth" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="49.587" Canvas.Left="62.2" Canvas.Top="10" Background="LightGoldenrodYellow" Foreground="Red"/>
+                <TextBox x:Name="txtCurrentSeq" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="88.8" Canvas.Left="194.017" Canvas.Top="10" Background="LightGoldenrodYellow" Foreground="Red"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="连续打印数量:" VerticalAlignment="Top" Canvas.Left="307" Canvas.Top="14.787"/>
+                <TextBox x:Name="txtAutoPrintCount" HorizontalAlignment="Left" Height="23" MaxLength="3" InputMethod.IsInputMethodEnabled="False" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="45.6" Canvas.Left="387.2" Canvas.Top="10" LostFocus="txtAutoPrintCount_LostFocus" PreviewKeyDown="OnlyNumeric_PreviewKeyDown"/>
+
+            </Canvas>
+        </GroupBox>
+        <GroupBox Header="指定范围打印" HorizontalAlignment="Left" Height="100" Margin="10,216.676,0,0" VerticalAlignment="Top" Width="583.2">
+            <Canvas HorizontalAlignment="Left" Height="49.6" Margin="10,10,0,0" VerticalAlignment="Top" Width="550.4">
+                <Button x:Name="btnFixPrint" Content="打   印" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnFixPrint_Click" Height="30.13" Canvas.Left="460.8" Canvas.Top="6.4"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="月序:" VerticalAlignment="Top" Canvas.Left="6.4" Canvas.Top="14.4"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="起始号序:" VerticalAlignment="Top" Canvas.Left="137.6" Canvas.Top="14.4"/>
+                <TextBox x:Name="txtFixMonth" MaxLength="2" PreviewKeyDown="OnlyNumeric_PreviewKeyDown" InputMethod.IsInputMethodEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="49.587" Canvas.Left="62.4" Canvas.Top="9.6"/>
+                <TextBox x:Name="txtFixSeq" MaxLength="7" PreviewKeyDown="OnlyNumeric_PreviewKeyDown" InputMethod.IsInputMethodEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="88.8" Canvas.Left="194.4" Canvas.Top="9.6"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="连续打印数量:" VerticalAlignment="Top" Canvas.Left="307.2" Canvas.Top="14.4"/>
+                <TextBox x:Name="txtFixPrintCount" HorizontalAlignment="Left" Height="23" MaxLength="3" PreviewKeyDown="OnlyNumeric_PreviewKeyDown" InputMethod.IsInputMethodEnabled="False" TextWrapping="NoWrap" Text="1" VerticalAlignment="Top" Width="45.6" Canvas.Left="387.2" Canvas.Top="9.6"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox Header="设置" HorizontalAlignment="Left" Height="77.6" Margin="8.6,10,0,0" VerticalAlignment="Top" Width="583.2">
+            <Canvas>
+                <TextBlock Text="标签打印机:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="16"/>
+                <ComboBox x:Name="cbLabelPrinter" SelectedValue="{Binding LabelPrinter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="192" Canvas.Left="77.8" Canvas.Top="10" SelectionChanged="cbLabelPrinter_SelectionChanged"/>
+                <TextBlock Text="标签样式:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="281.6" Canvas.Top="16"/>
+                <ComboBox x:Name="cbLabelStyle" SelectedIndex="{Binding LabelStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="192" Canvas.Left="349.6" Canvas.Top="9.6" SelectionChanged="cbLabelPrinter_SelectionChanged"/>
+            </Canvas>
+        </GroupBox>
+    </Grid>
+</Window>

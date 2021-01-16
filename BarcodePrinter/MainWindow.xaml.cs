@@ -23,7 +23,7 @@ namespace BarcodePrinter
         public MainWindow()
         {
             var printers = System.Drawing.Printing.PrinterSettings.InstalledPrinters.Cast<string>().ToList();
-            var styles = new List<string> { "仅条码", "完整"};
+            var styles = new List<string> { "十混一", "五混一" };
             this.DataContext = App.Settings;
             InitializeComponent();
             cbLabelPrinter.ItemsSource = printers;
@@ -89,9 +89,14 @@ namespace BarcodePrinter
                     var printer = new MyBarcodePrinter1(number, App.Settings.LabelPrinter);
                     printer.Print();
                 }
-                else
+                else if(App.Settings.LabelStyle == 1)
                 {
                     var printer = new MyBarcodePrinter2(number, App.Settings.LabelPrinter);
+                    printer.Print();
+                }
+                else
+                {
+                    var printer = new MyBarcodePrinter3(number, App.Settings.LabelPrinter);
                     printer.Print();
                 }
             }
@@ -116,6 +121,11 @@ namespace BarcodePrinter
         {
             if (e.KeyboardDevice.Modifiers != ModifierKeys.None) e.Handled = true;
             else if (!((e.Key >= Key.D0 && e.Key <= Key.D9) || e.Key == Key.Back)) e.Handled = true;
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            App.Settings.Save();
         }
     }
 }

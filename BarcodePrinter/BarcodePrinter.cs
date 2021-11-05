@@ -33,12 +33,6 @@ namespace BarcodePrinter
         {
             var g = e.Graphics;
 
-            if (App.Settings.Rotation180 == true)
-            {
-                g.TranslateTransform(138, 118);
-                g.RotateTransform(180);
-            }
-
             var titleM = g.MeasureString("样本保存液", fntTitle);
             var titleX = (138f - titleM.Width) / 2;
             g.DrawString("样本保存液", fntTitle, Brushes.Black, titleX, 8);
@@ -86,12 +80,6 @@ namespace BarcodePrinter
         {
             var g = e.Graphics;
 
-            if (App.Settings.Rotation180 == true)
-            {
-                g.TranslateTransform(138, 118);
-                g.RotateTransform(180);
-            }
-
             var titleM = g.MeasureString("样本保存液", fntTitle);
             var titleX = (138f - titleM.Width) / 2;
             g.DrawString("样本保存液", fntTitle, Brushes.Black, titleX, 8);
@@ -138,12 +126,6 @@ namespace BarcodePrinter
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             var g = e.Graphics;
-
-            if (App.Settings.Rotation180 == true)
-            {
-                g.TranslateTransform(138, 118);
-                g.RotateTransform(180);
-            }
 
             var titleM = g.MeasureString("样本保存液", fntTitle);
             var titleX = (138f - titleM.Width) / 2;

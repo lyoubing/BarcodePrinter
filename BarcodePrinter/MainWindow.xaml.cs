@@ -122,10 +122,5 @@ namespace BarcodePrinter
             if (e.KeyboardDevice.Modifiers != ModifierKeys.None) e.Handled = true;
             else if (!((e.Key >= Key.D0 && e.Key <= Key.D9) || e.Key == Key.Back)) e.Handled = true;
         }
-
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            App.Settings.Save();
-        }
     }
 }

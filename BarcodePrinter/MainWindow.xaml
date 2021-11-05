@@ -37,7 +37,6 @@
                 <ComboBox x:Name="cbLabelPrinter" SelectedValue="{Binding LabelPrinter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="192" Canvas.Left="77.8" Canvas.Top="10" SelectionChanged="cbLabelPrinter_SelectionChanged"/>
                 <TextBlock Text="标签样式:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="281.6" Canvas.Top="16"/>
                 <ComboBox x:Name="cbLabelStyle" SelectedIndex="{Binding LabelStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101.6" Canvas.Left="349.6" Canvas.Top="9.6" SelectionChanged="cbLabelPrinter_SelectionChanged"/>
-                <CheckBox Content="倒转180度" Canvas.Left="464.8" Canvas.Top="16" FlowDirection="RightToLeft" IsChecked="{Binding Rotation180}" Checked="CheckBox_Checked"/>
             </Canvas>
         </GroupBox>
     </Grid>

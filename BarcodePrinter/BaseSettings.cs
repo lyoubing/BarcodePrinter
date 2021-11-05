@@ -15,7 +15,6 @@ namespace BarcodePrinter
         public int BatchNumber { get; set; }
         public int LastMonth { get; set; }
         public int LastNumber { get; set; }
-        public bool? Rotation180 { get; set; }
         public static BaseSettings GetDefault()
         {
             return new BaseSettings
@@ -24,7 +23,6 @@ namespace BarcodePrinter
                 LastMonth = 1,
                 LastNumber = 0,
                 LabelStyle = 0,
-                Rotation180 = false,
             };
         }
         public void Save()
@@ -39,7 +37,6 @@ namespace BarcodePrinter
 
             var config = File.ReadAllText(BaseSettings.FileName);
             var setting = JsonConvert.DeserializeObject<BaseSettings>(config);
-            if (!setting.Rotation180.HasValue) setting.Rotation180 = false;
             return setting;
         }
     }
